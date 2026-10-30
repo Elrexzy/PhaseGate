@@ -1,11 +1,8 @@
 import java.util.Scanner;
-
 public class StudentGradingSystem{
-
     public static void main(String[] args){
 
         Scanner inputtaker = new Scanner(System.in);
-
         System.out.print("What is the number of students in your class? ");
         int numberOfStudent = inputtaker.nextInt();
 
@@ -23,7 +20,7 @@ public class StudentGradingSystem{
         System.out.println("Saved successfully!");
 
         int[][] scores = new int[numberOfStudent][numberOfSubject];
-        int[] totals = new int[numberOfStudent];
+        int[] total = new int[numberOfStudent];
         int[] positions = new int[numberOfStudent];
         
         for (int index = 0; index < scores.length; index++){
@@ -35,33 +32,31 @@ public class StudentGradingSystem{
                 while (score < 0 || score > 100){
                     System.out.print("Invalid score. Enter a value from 0 to 100: ");
                     score = inputtaker.nextInt();
-                }
-
+            }
                 scores[index][count] = score;
 
                 System.out.println("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 System.out.println("Saved successfully!");
-            }
         }
+    }
   
         for (int count = 0; count < numberOfStudent; count++){
             int sum = 0;
             for (int index = 0; index < numberOfSubject; index++){
                 sum += scores[count][index];
             }
-
-            totals[count] = sum;
-        }
+            total[count] = sum;
+     }
    
         for (int count = 0; count < numberOfStudent; count++){
             positions[count] = 1;
             
             for (int index = 0; index < numberOfStudent; index++){
-                if (totals[index] > totals[count]){
+                if (total[index] > total[count]){
                     positions[count]++;
-                }
-            }
+             }
         }
+   }
 
         System.out.println("\n+++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("              STUDENT GRADE SUMMARY");
@@ -76,18 +71,15 @@ public class StudentGradingSystem{
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         
         for (int count = 0; count < numberOfStudent; count++){
-            double average = (double) totals[count] / numberOfSubject;
+            double average = (double) total[count] / numberOfSubject;
             System.out.printf("%12s", "STUDENT " + (count + 1));
 
             for (int index = 0; index < numberOfSubject; index++){
             System.out.printf("%8d", scores[count][index]);
             }
 
-            System.out.printf("%10d%10.2f%10d%n",
-            totals[count],average,positions[count]);
+            System.out.printf("%10d%10.2f%10d%n", total[count],average,positions[count]);
         }
-            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-
-      
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");    
     }
 }
