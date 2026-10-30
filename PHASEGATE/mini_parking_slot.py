@@ -24,14 +24,14 @@ def mini_parking_system(parking_slot):
         
             row = slot_number - 1;
 
-        if row >= 1 && row < 20:
+        if row >= 1 and row < 20:
                   
             if slot[row -1 ] == '0':
                 slot[row -1 ] = '1'
                 
                 for index in parking_slot:
                     print(parkingSlot, " ");
-                        print();
+                    print();
                     break;
             
             else:
@@ -39,4 +39,4 @@ def mini_parking_system(parking_slot):
                  
         else: 
             print("Invalid space selection. Try again");
-                is_real = False
+            is_real = False
