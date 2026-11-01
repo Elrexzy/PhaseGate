@@ -42,16 +42,35 @@ function total(scores){
         }
         totals.push(sum);
     }
-	return(total);
+	return(totals);
 }
 
 function averageScore(totals,numberOfSubject){
-	
-	return(averageScore);
+    let averages = [];
 
-function positions(numberOfStudent){
-	
-	return(positions);
+    for (let index = 0; index < totals.length; index++) {
+        let average = totals[student] / numberOfSubject;
+        averages.push(average);
+    }
+    return averages;
+}
+
+function positions(totals) {
+    let positions = [];
+
+    for (let student = 0; student < totals.length; student++){
+        let position = 1;
+
+        for (let other = 0; other < totals.length; other++){
+            if (totals[other] > totals[student]){
+                position++;
+            }
+        }
+
+        positions.push(position);
+    }
+
+    return positions;
 }
 
 function summary(numberOfStudent){
